@@ -1,0 +1,228 @@
+{% extends "main/base.html" %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+{% block content %}
+
+<body>
+<h1>Welcome!</h1>
+<p> To begin customizing your assessment just select your TEKS from the dropdown menu and then we will prompt you with
+options to customize your questions. </p>
+<p class='text-muted'> *All 5th Readiness standards available, 3rd & 4th in progress</p>
+<form method="post">
+
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="from-group">
+            <legend class="border-bottom mb-4">Number of Questions</legend>
+            {{numQ}}
+        </fieldset>
+
+
+    </form>
+</div>
+</form>
+
+<!--<select class="selectpicker" title="Grade Level">-->
+    <!--<option data-hidden="true">Grade Level</option>-->
+    <!--<option>4th(limited)</option>-->
+    <!--<option>5th</option>-->
+<!--</select>-->
+
+<!--<div class="btn-group btn-group-toggle" data-toggle="buttons">-->
+  <!--<label class="btn btn-secondary active">-->
+    <!--<input type="radio" name="grade" id="4th" autocomplete="off" checked> 4th (Limited)-->
+  <!--</label>-->
+  <!--<label class="btn btn-secondary">-->
+    <!--<input type="radio" name="grade" id="5th" autocomplete="off"> 5th (Readiness)-->
+  <!--</label>-->
+<!--</div>-->
+
+<!--<p></p>-->
+<!--<div class="dropdown show">-->
+  <!--<a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">-->
+    <!--Select TEKS-->
+  <!--</a>-->
+  <!--<div class="dropdown-menu scroll" aria-labelledby="dropdownMenuLink">-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#custom5_co_decimals">5.2B Compare & Order Decimals</a>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#custom5_prime">5.4A Prime & Composite</a>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.4F Order of Operations</a>-->
+        <!--<div class="dropdown-divider"></div>-->
+    <!--<h6 class="dropdown-header">RC2 Decimals</h6>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.3K Add & Subtract Decimals</a>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.3E Multiply Decimals</a>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.3G Divide Decimals</a>-->
+          <!--<div class="dropdown-divider"></div>-->
+    <!--<h6 class="dropdown-header">RC2 Fractions</h6>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.3K Add & Subtract Fractions</a>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.3B Multiply Whole Numbers</a>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.3C Divide Whole Numbers</a>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.3L Divide Fractions</a>-->
+          <!--<div class="dropdown-divider"></div>-->
+    <!--<h6 class="dropdown-header">RC2 Equations</h6>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.4B Represent & Solve Multi-Step Equations</a>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.4C Tables, Patterns, Equations, Graphs</a>-->
+          <!--<div class="dropdown-divider"></div>-->
+    <!--<h6 class="dropdown-header">RC3</h6>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.4H Perimeter Area Volume</a>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.5A Classify Figures</a>-->
+    <!--<a class="dropdown-item" href="#response" role="button" data-toggle="modal" data-target="#">5.8C Coordinate Grid</a>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--<p></p>-->
+
+
+
+
+
+
+
+<!--<p> </p>-->
+
+<!--<select class="selectpicker" title="Select TEKS">-->
+    <!--<option data-hidden="true">Select TEKS</option>-->
+    <!--<optgroup label="RC1">-->
+    <!--<option>5.2B Compare and Order Decimals</option>-->
+    <!--<option>5.4A Prime & Composite</option>-->
+    <!--<option>5.4F Order of Operations</option></optgroup>-->
+    <!--<optgroup label="RC2 Decimals">-->
+    <!--<option>5.3K Add & Subtract Decimals</option>-->
+    <!--<option>5.3E Multiply Decimals</option>-->
+    <!--<option>5.3G Divide Decimals</option></optgroup>-->
+    <!--<optgroup label="RC2 Fractions">-->
+    <!--<option>5.3K Add & Subtract Fractions</option>-->
+    <!--<option>5.3B Multiply Whole Numbers</option>-->
+    <!--<option>5.3C Divide Whole Numbers</option>-->
+    <!--<option>5.3L Divide Fractions</option></optgroup>-->
+    <!--<optgroup label="RC2 Equations">-->
+    <!--<option>5.4B Represent & Solve Multi-Step Equations</option>-->
+    <!--<option>5.4C Tables, Patterns, Equations, Graphs</option></optgroup>-->
+    <!--<optgroup label="RC3">-->
+    <!--<option>5.4H Perimeter Area Volume</option>-->
+    <!--<option>5.5A Classify Figures</option>-->
+    <!--<option>5.8C Coordinate Grid</option></optgroup>-->
+<!--</select>-->
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">-->
+  <!--Add TEKS-->
+<!--</button>-->
+
+<!--&lt;!&ndash; Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+  <!--<div class="modal-dialog" role="document">-->
+    <!--<div class="modal-content">-->
+      <!--<div class="modal-header">-->
+        <!--<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+          <!--<span aria-hidden="true">&times;</span>-->
+        <!--</button>-->
+      <!--</div>-->
+      <!--<div class="modal-body">-->
+
+      <!--</div>-->
+      <!--<div class="modal-footer">-->
+        <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; &ndash;&gt;-->
+<!--<p></p>-->
+
+
+
+<!--<div class="modal" id="custom5_co_decimals">-->
+    <!--<div class="modal-dialog modal-xl">-->
+      <!--<div class="modal-content">-->
+        <!--<div class="modal-header">-->
+          <!--<h5 class="modal-title"> Comparing Decimals Customization</h5>-->
+          <!--<button class="close" data-dismiss="modal">&times;</button>-->
+        <!--</div>-->
+        <!--<div class="modal-body">-->
+
+
+            <!--<div class="card-group">-->
+              <!--<div class="card">-->
+                <!--<div class="card-body">-->
+                  <!--<h5 class="card-title">Customize TEKS</h5>-->
+                  <!--<p class="card-text">-->
+                      <!--<div class="btn-group-toggle" data-toggle="buttons">-->
+                                      <!--<label class="btn btn-secondary active">-->
+                                        <!--<input type="radio" name="specify" id="compare" autocomplete="off" checked> Compare Decimals-->
+                                      <!--</label><p></p>-->
+                                      <!--<label class="btn btn-secondary">-->
+                                        <!--<input type="radio" name="specify" id="order" autocomplete="off"> Order Decimals-->
+                                      <!--</label><p></p>-->
+                                        <!--<label class="btn btn-secondary">-->
+                                        <!--<input type="radio" name="specify" id="both" autocomplete="off"> Both-->
+                                        <!--</label></div></p>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="card">-->
+                <!--<div class="card-body">-->
+                  <!--<h5 class="card-title">Customize Level</h5>-->
+                  <!--<p class="card-text">-->
+                      <!--<div class="btn-group-toggle" data-toggle="buttons">-->
+                                      <!--<label class="btn btn-secondary active">-->
+                                        <!--<input type="radio" name="level" id="compare" autocomplete="off" checked> 1- Smaller numbers-->
+                                      <!--</label><p></p>-->
+                                      <!--<label class="btn btn-secondary">-->
+                                        <!--<input type="radio" name="level" id="order" autocomplete="off"> 2- larger numbers-->
+                                      <!--</label><p></p>-->
+                                        <!--<label class="btn btn-secondary">-->
+                                        <!--<input type="radio" name="level" id="both" autocomplete="off"> 3- larger numbers, more steps-->
+                                        <!--</label></div>-->
+                <!--</div></p>-->
+                <!--</div>-->
+              <!--</div>-->
+
+          <!--<div class="modal-footer">-->
+            <!--<button class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+<!--<div class="modal" id="custom5_prime">-->
+    <!--<div class="modal-dialog">-->
+      <!--<div class="modal-content">-->
+        <!--<div class="modal-header">-->
+          <!--<h5 class="modal-title"></h5>-->
+          <!--<button class="close" data-dismiss="modal">&times;</button>-->
+        <!--</div>-->
+        <!--<div class="modal-body">-->
+          <!--<div class="list-group">-->
+            <!--<div class="d-flex w-100 justify-content-between">-->
+              <!--<h6>Prime and Composite Numbers</h6>-->
+
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="modal-footer">-->
+            <!--<button class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+</body>
+{% endblock content %}
+
+</html>
