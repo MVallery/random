@@ -14,24 +14,63 @@
 
 <body>
 <h1>Welcome!</h1>
+{% if obj.TEKS == '5.2B' %}
+        <h2>if statement worked</h2>
+{% endif %}
+
 <p> To begin customizing your assessment just select your TEKS from the dropdown menu and then we will prompt you with
 options to customize your questions. </p>
 <p class='text-muted'> *All 5th Readiness standards available, 3rd & 4th in progress</p>
-<form method="post">
 
-<div class="content-section">
-    <form method="POST">
-        {% csrf_token %}
-        <fieldset class="from-group">
-            <legend class="border-bottom mb-4">Number of Questions</legend>
-            {{numQ}}
-        </fieldset>
+<!--<div class="content-section">-->
+    <!--<form method="POST">-->
+        <!--{% csrf_token %}-->
+        <!--<fieldset class="from-group">-->
+            <!--<legend class="border-bottom mb-4">Number of Questions</legend>-->
+            <!--{{numQ}}-->
+        <!--</fieldset>-->
 
 
-    </form>
-</div>
+    <!--</form>value="Save"-->
+<!--</div>-->
+<!--</form>-->
+
+<form method="POST">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" href="#response" data-toggle="modal" data-target="#custom5_co_decimals"/>
+    <a class="btn" href="#response" role="button" data-toggle="modal" data-target="#custom5_co_decimals">Add TEKS</a>
+
 </form>
 
+
+
+<div class="modal" id="custom5_co_decimals">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"> Comparing Decimals Customization</h5>
+            {% if 'obj.TEKS' == '5.2B' %}
+                <h1>if statement worked</h1>
+            {% endif %}
+          <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form method="POST">{% csrf_token %}
+
+                {{ customform.as_p }}
+
+                <input type="submit" value="Save"/>
+            </form>
+
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" value= "Save" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 <!--<select class="selectpicker" title="Grade Level">-->
     <!--<option data-hidden="true">Grade Level</option>-->
     <!--<option>4th(limited)</option>-->

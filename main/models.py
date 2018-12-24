@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django import forms
 
 TEKS_CHOICES = (
     ('5.2B', '5.2B Compare and Order Decimals'),
@@ -20,7 +22,7 @@ TEKS_CHOICES = (
 
 
 class QuestionsTEKS(models.Model):
-    numQ = models.IntegerField(max_length=25)
+    numQ = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(20)])
     TEKS = models.CharField(max_length=10, choices=TEKS_CHOICES, default='green')
 
 

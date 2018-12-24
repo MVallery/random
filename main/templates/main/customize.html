@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>custom.html</title>
+</head>
+{% block content %}
+
+
+<body>
+    <h1>This is customize.html file</h1>
+</body>
+
+<form method="POST">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save"/>
+</form>
+
+
+{% endblock content %}
+
+</html>
